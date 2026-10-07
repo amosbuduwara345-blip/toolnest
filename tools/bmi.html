@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BMI Calculator - ToolNest</title>
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="../index.html">Home</a>
+
+        <a href="../index.html#tools">Tools</a>
+
+        <a href="../index.html#categories">Categories</a>
+
+        <a href="../index.html#about">About</a>
+
+    </nav>
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
+
+</header>
+    <!-- BMI CALCULATOR -->
+
+    <main class="calculator-page">
+
+        <div class="calculator-container">
+
+            <a href="../index.html" class="back-home">
+    ← Back to ToolNest
+</a>
+
+            <h1>
+                BMI Calculator
+            </h1>
+
+            <p class="calculator-description">
+                Calculate BMI using your height and weight.
+            </p>
+
+
+            <div class="calculator-box">
+
+                <label for="weight">
+                    Weight (kg)
+                </label>
+
+                <input
+                    type="number"
+                    id="weight"
+                    placeholder="Enter your weight"
+                    step="any"
+                >
+
+
+                <label for="height">
+                    Height (cm)
+                </label>
+
+                <input
+                    type="number"
+                    id="height"
+                    placeholder="Enter your height"
+                    step="any"
+                >
+
+
+                <button
+                    type="button"
+                    class="calculate-button"
+                    id="calculateBMI"
+                >
+                    Calculate BMI
+                </button>
+
+                <button type="button" class="clear-button">
+    Clear
+</button>
+
+
+                <div
+                    class="calculator-result"
+                    id="bmiResult"
+                >
+                    Your result will appear here.
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="tool-footer">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <p>
+        Simple tools for everyday life.
+    </p>
+
+    <p>
+        © 2026 ToolNest. All rights reserved.
+    </p>
+
+</footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const weight =
+            document.getElementById("weight");
+
+        const height =
+            document.getElementById("height");
+
+        const calculateBMI =
+            document.getElementById("calculateBMI");
+
+        const bmiResult =
+            document.getElementById("bmiResult");
+
+
+        calculateBMI.addEventListener(
+            "click",
+            function () {
+
+                const weightValue =
+                    Number(weight.value);
+
+                const heightValue =
+                    Number(height.value);
+
+
+                if (
+                    !weight.value ||
+                    !height.value
+                ) {
+
+                    bmiResult.textContent =
+                        "Please enter both weight and height.";
+
+                    return;
+
+                }
+
+
+                if (
+                    weightValue <= 0 ||
+                    heightValue <= 0
+                ) {
+
+                    bmiResult.textContent =
+                        "Please enter valid values.";
+
+                    return;
+
+                }
+
+
+                // Convert height from centimeters to meters
+
+                const heightMeters =
+                    heightValue / 100;
+
+
+                // BMI formula
+
+                const bmi =
+                    weightValue /
+                    (heightMeters * heightMeters);
+
+
+                bmiResult.textContent =
+                    `Your BMI is ${bmi.toFixed(1)}`;
+
+            }
+        );
+
+
+
+    // ==========================================
+    // BMI CALCULATOR CLEAR BUTTON
+    // ==========================================
+
+    const clearButton =
+        document.querySelector(".clear-button");
+
+    clearButton.addEventListener("click", function () {
+
+        // Clear weight
+        weight.value = "";
+
+        // Clear height
+        height.value = "";
+
+        // Reset result
+        bmiResult.textContent =
+            "Your result will appear here.";
+
+    });
+
+</script>
+
+
+<script>
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuButton && navLinks) {
+
+    menuButton.addEventListener("click", function () {
+
+        navLinks.classList.toggle("menu-open");
+
+    });
+
+    const menuItems = navLinks.querySelectorAll("a");
+
+    menuItems.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("menu-open");
+
+        });
+
+    });
+
+}
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>

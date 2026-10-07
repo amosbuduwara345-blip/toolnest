@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Tip Calculator - ToolNest</title>
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="../index.html">Home</a>
+
+        <a href="../index.html#tools">Tools</a>
+
+        <a href="../index.html#categories">Categories</a>
+
+        <a href="../index.html#about">About</a>
+
+    </nav>
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
+
+</header>
+
+    <!-- TIP CALCULATOR -->
+
+    <main class="calculator-page">
+
+        <div class="calculator-container">
+
+            <a href="../index.html" class="back-home">
+    ← Back to ToolNest
+</a>
+
+            <h1>
+                Tip Calculator
+            </h1>
+
+            <p class="calculator-description">
+                Calculate a tip and the total amount quickly.
+            </p>
+
+
+            <div class="calculator-box">
+
+                <label for="billAmount">
+                    Bill Amount
+                </label>
+
+                <input
+                    type="number"
+                    id="billAmount"
+                    placeholder="Enter bill amount"
+                    step="any"
+                >
+
+
+                <label for="tipPercentage">
+                    Tip Percentage (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="tipPercentage"
+                    placeholder="Example: 10"
+                    step="any"
+                >
+
+
+                <button
+                    type="button"
+                    class="calculate-button"
+                    id="calculateTip"
+                >
+                    Calculate Tip
+                </button>
+
+                <button type="button" class="clear-button">
+    Clear
+</button>
+
+
+                <div
+                    class="calculator-result"
+                    id="tipResult"
+                >
+                    Your result will appear here.
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="tool-footer">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <p>
+        Simple tools for everyday life.
+    </p>
+
+    <p>
+        © 2026 ToolNest. All rights reserved.
+    </p>
+
+</footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const billAmount =
+            document.getElementById("billAmount");
+
+        const tipPercentage =
+            document.getElementById("tipPercentage");
+
+        const calculateTip =
+            document.getElementById("calculateTip");
+
+        const tipResult =
+            document.getElementById("tipResult");
+
+
+        calculateTip.addEventListener(
+            "click",
+            function () {
+
+                const bill =
+                    Number(billAmount.value);
+
+                const percentage =
+                    Number(tipPercentage.value);
+
+
+                if (
+                    billAmount.value === "" ||
+                    tipPercentage.value === ""
+                ) {
+
+                    tipResult.textContent =
+                        "Please enter the bill amount and tip percentage.";
+
+                    return;
+
+                }
+
+
+                if (
+                    bill < 0 ||
+                    percentage < 0
+                ) {
+
+                    tipResult.textContent =
+                        "Please enter valid values.";
+
+                    return;
+
+                }
+
+
+                const tip =
+                    bill * (percentage / 100);
+
+                const total =
+                    bill + tip;
+
+
+                tipResult.innerHTML =
+                    `
+                    Tip: ${tip.toFixed(2)}
+                    <br>
+                    Total: ${total.toFixed(2)}
+                    `;
+
+            }
+        );
+
+
+
+    const clearButton =
+        document.querySelector(".clear-button");
+
+    clearButton.addEventListener("click", function () {
+
+        billAmount.value = "";
+
+        tipPercentage.value = "";
+
+        tipResult.textContent =
+            "Your result will appear here.";
+
+    });
+
+</script>
+
+
+<script>
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuButton && navLinks) {
+
+    menuButton.addEventListener("click", function () {
+
+        navLinks.classList.toggle("menu-open");
+
+    });
+
+    const menuItems = navLinks.querySelectorAll("a");
+
+    menuItems.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("menu-open");
+
+        });
+
+    });
+
+}
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>

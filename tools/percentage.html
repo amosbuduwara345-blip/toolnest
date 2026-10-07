@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Percentage Calculator - ToolNest</title>
+
+    <meta
+        name="description"
+        content="Use ToolNest's free percentage calculator to calculate percentages quickly and easily."
+    >
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="../index.html">Home</a>
+
+        <a href="../index.html#tools">Tools</a>
+
+        <a href="../index.html#categories">Categories</a>
+
+        <a href="../index.html#about">About</a>
+
+    </nav>
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
+
+</header>
+
+    <!-- CALCULATOR -->
+
+    <main>
+
+        <section class="calculator-page">
+
+            <div class="calculator-container">
+
+                <a href="../index.html" class="back-home">
+    ← Back to ToolNest
+</a>
+
+                <span class="hero-badge">
+                    MATH TOOL
+                </span>
+
+                <h1>
+                    Percentage Calculator
+                </h1>
+
+                <p class="calculator-description">
+                    Calculate a percentage of any number quickly
+                    and easily.
+                </p>
+
+
+                <div class="calculator-box">
+
+                    <label for="percentage">
+                        What percentage?
+                    </label>
+
+                    <input
+                        type="number"
+                        id="percentage"
+                        placeholder="Example: 15"
+                    >
+
+
+                    <label for="number">
+                        Percentage of what number?
+                    </label>
+
+                    <input
+                        type="number"
+                        id="number"
+                        placeholder="Example: 50000"
+                    >
+
+
+                    <button
+                        id="calculateButton"
+                        class="calculate-button"
+                    >
+                        Calculate
+                    </button>
+
+                    <button type="button" class="clear-button">
+    Clear
+</button>
+
+
+                    <div
+                        id="result"
+                        class="calculator-result"
+                    >
+                        Enter your numbers above.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="tool-footer">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <p>
+        Simple tools for everyday life.
+    </p>
+
+    <p>
+        © 2026 ToolNest. All rights reserved.
+    </p>
+
+</footer>
+
+    <script>
+
+        const percentage =
+            document.getElementById("percentage");
+
+        const number =
+            document.getElementById("number");
+
+        const calculateButton =
+            document.getElementById("calculateButton");
+
+        const result =
+            document.getElementById("result");
+
+
+        calculateButton.addEventListener(
+            "click",
+            function() {
+
+                const percent =
+                    Number(percentage.value);
+
+                const value =
+                    Number(number.value);
+
+
+                if (
+                    percentage.value === "" ||
+                    number.value === ""
+                ) {
+
+                    result.textContent =
+                        "Please enter both numbers.";
+
+                    return;
+
+                }
+
+
+                const answer =
+                    (percent / 100) * value;
+
+
+                result.textContent =
+                    `${percent}% of ${value} = ${answer}`;
+
+            }
+        );
+
+    </script>
+
+
+<script>
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuButton && navLinks) {
+
+    menuButton.addEventListener("click", function () {
+
+        navLinks.classList.toggle("menu-open");
+
+    });
+
+    const menuItems = navLinks.querySelectorAll("a");
+
+    menuItems.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("menu-open");
+
+        });
+
+    });
+
+}
+
+
+    const clearButton =
+        document.querySelector(".clear-button");
+
+    clearButton.addEventListener("click", function () {
+
+        percentage.value = "";
+
+        number.value = "";
+
+        result.textContent =
+            "Enter your numbers above.";
+
+    });
+
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>

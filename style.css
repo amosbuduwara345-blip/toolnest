@@ -1,0 +1,2819 @@
+/* ==========================================
+   TOOLNEST - MAIN WEBSITE STYLE
+   Professional / Formal Design
+   ========================================== */
+
+
+/* ==========================================
+   GLOBAL RESET
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background: #f8fafc;
+    color: #101828;
+    line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+
+.navbar {
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e4e7ec;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+/* LOGO */
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+
+    color: #101828;
+
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #6b5cff;
+}
+
+
+/* NAV LINKS */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: #475467;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #6b5cff;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: #6b5cff;
+
+    transition: width 0.2s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* MOBILE MENU BUTTON */
+
+.menu-button {
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #e4e7ec;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #101828;
+
+    font-size: 23px;
+
+    line-height: 1;
+}
+
+
+/* ==========================================
+   HERO
+   ========================================== */
+
+.hero {
+    padding: 105px 5% 100px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #eef2f6;
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* HERO BADGE */
+
+.hero-badge {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    padding: 7px 13px;
+
+    border: 1px solid #ddd8ff;
+    border-radius: 20px;
+
+    background: #f5f3ff;
+
+    color: #6b5cff;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* HERO TITLE */
+
+.hero h1 {
+    margin: 0 auto 18px;
+
+    max-width: 800px;
+
+    color: #101828;
+
+    font-size: clamp(38px, 5vw, 58px);
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    letter-spacing: -1.5px;
+}
+
+.hero h1 span {
+    color: #6b5cff;
+}
+
+
+/* HERO DESCRIPTION */
+
+.hero p {
+    max-width: 650px;
+
+    margin: 0 auto 30px;
+
+    color: #667085;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   SEARCH BOX
+   ========================================== */
+
+.search-box {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: stretch;
+
+    padding: 5px;
+
+    background: #ffffff;
+
+    border: 1px solid #d0d5dd;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(16, 24, 40, 0.06);
+}
+
+.search-box:focus-within {
+    border-color: #8f85ff;
+
+    box-shadow:
+        0 0 0 3px rgba(107, 92, 255, 0.10);
+}
+
+.search-box input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 13px 15px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #101828;
+
+    font-size: 15px;
+}
+
+.search-box input::placeholder {
+    color: #98a2b3;
+}
+
+.search-box button {
+    padding: 0 22px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #6b5cff;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.search-box button:hover {
+    background: #5748e8;
+}
+
+.search-box button:active {
+    transform: scale(0.98);
+}
+
+
+/* ==========================================
+   GENERAL SECTION HEADING
+   ========================================== */
+
+.section-heading {
+    max-width: 700px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+}
+
+.section-heading > span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #6b5cff;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    margin: 0 0 12px;
+
+    color: #101828;
+
+    font-size: 36px;
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.5px;
+}
+
+.section-heading p {
+    margin: 0;
+
+    color: #667085;
+
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   TOOLS SECTION
+   ========================================== */
+
+.tools-section {
+    padding: 85px 5%;
+
+    background: #f8fafc;
+}
+
+.tools-count {
+    margin-top: 12px !important;
+
+    color: #667085 !important;
+
+    font-size: 14px !important;
+    font-weight: 600;
+}
+
+
+/* TOOL GRID */
+
+.tools-grid {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* TOOL CARD */
+
+.tool-card {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 17px;
+
+    min-height: 185px;
+
+    padding: 25px;
+
+    background: #ffffff;
+
+    border: 1px solid #e4e7ec;
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #d0d5dd;
+
+    box-shadow:
+        0 10px 25px rgba(16, 24, 40, 0.07);
+}
+
+
+/* TOOL ICON */
+
+.tool-icon {
+    flex: 0 0 50px;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #f0edff;
+
+    color: #6b5cff;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+/* TOOL CONTENT */
+
+.tool-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.tool-content h3 {
+    margin: 0 0 8px;
+
+    color: #101828;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    line-height: 1.35;
+}
+
+.tool-content p {
+    margin: 0 0 16px;
+
+    color: #667085;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.tool-content a {
+    display: inline-block;
+
+    color: #6b5cff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.tool-content a:hover {
+    color: #5748e8;
+
+    text-decoration: underline;
+}
+
+
+/* ==========================================
+   CATEGORIES
+   ========================================== */
+
+.categories-section {
+    padding: 85px 5%;
+
+    background: #ffffff;
+}
+
+.category-grid {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* CATEGORY CARD */
+
+.category-card {
+    padding: 28px 22px;
+
+    text-align: center;
+
+    background: #f8fafc;
+
+    border: 1px solid #e4e7ec;
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #d0d5dd;
+
+    box-shadow:
+        0 10px 25px rgba(16, 24, 40, 0.07);
+}
+
+
+/* CATEGORY ICON */
+
+.category-card > span {
+    width: 50px;
+    height: 50px;
+
+    margin: 0 auto 16px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #f0edff;
+
+    font-size: 22px;
+}
+
+.category-card h3 {
+    margin: 0 0 8px;
+
+    color: #101828;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.category-card p {
+    margin: 0;
+
+    color: #667085;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   ABOUT
+   ========================================== */
+
+.about-section {
+    padding: 90px 5%;
+
+    background: #f8fafc;
+
+    border-top: 1px solid #eef2f6;
+}
+
+.about-content {
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.about-content > span {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #6b5cff;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.about-content h2 {
+    margin: 0 auto 18px;
+
+    color: #101828;
+
+    font-size: 36px;
+    font-weight: 800;
+
+    line-height: 1.25;
+}
+
+.about-content p {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    color: #667085;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.footer {
+    padding: 35px 5%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    background: #ffffff;
+
+    border-top: 1px solid #e4e7ec;
+}
+
+.footer .logo {
+    font-size: 21px;
+}
+
+.footer p {
+    margin: 0;
+
+    color: #98a2b3;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   TOOL PAGES
+   ========================================== */
+
+/*
+   These styles are shared by the calculator/tool
+   pages so every page has the same formal design.
+*/
+
+.tool-page {
+    min-height: calc(100vh - 70px);
+
+    padding: 70px 5%;
+
+    background: #f8fafc;
+}
+
+.tool-page-container {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 0 auto;
+}
+
+.tool-page-header {
+    margin-bottom: 30px;
+
+    text-align: center;
+}
+
+.tool-page-header h1 {
+    margin-bottom: 10px;
+
+    color: #101828;
+
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.tool-page-header p {
+    color: #667085;
+
+    font-size: 15px;
+}
+
+
+/* TOOL FORM CARD */
+
+.tool-form,
+.calculator-card,
+.tool-container {
+    width: 100%;
+
+    padding: 30px;
+
+    background: #ffffff;
+
+    border: 1px solid #e4e7ec;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 20px rgba(16, 24, 40, 0.05);
+}
+
+
+/* LABELS */
+
+.tool-form label,
+.calculator-card label,
+.tool-container label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #344054;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* INPUTS */
+
+.tool-form input,
+.tool-form select,
+.tool-form textarea,
+
+.calculator-card input,
+.calculator-card select,
+.calculator-card textarea,
+
+.tool-container input,
+.tool-container select,
+.tool-container textarea {
+    width: 100%;
+
+    margin-bottom: 18px;
+
+    padding: 12px 14px;
+
+    border: 1px solid #d0d5dd;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #101828;
+
+    font-size: 15px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.tool-form input:focus,
+.tool-form select:focus,
+.tool-form textarea:focus,
+
+.calculator-card input:focus,
+.calculator-card select:focus,
+.calculator-card textarea:focus,
+
+.tool-container input:focus,
+.tool-container select:focus,
+.tool-container textarea:focus {
+    border-color: #8f85ff;
+
+    box-shadow:
+        0 0 0 3px rgba(107, 92, 255, 0.10);
+}
+
+
+/* TEXTAREA */
+
+.tool-form textarea,
+.calculator-card textarea,
+.tool-container textarea {
+    min-height: 130px;
+
+    resize: vertical;
+}
+
+
+/* TOOL BUTTONS */
+
+.tool-form button,
+.calculator-card button,
+.tool-container button {
+    min-height: 44px;
+
+    padding: 0 20px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #6b5cff;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.tool-form button:hover,
+.calculator-card button:hover,
+.tool-container button:hover {
+    background: #5748e8;
+}
+
+.tool-form button:active,
+.calculator-card button:active,
+.tool-container button:active {
+    transform: scale(0.98);
+}
+
+
+/* RESULTS */
+
+.result,
+.result-box,
+.calculator-result {
+    margin-top: 22px;
+
+    padding: 18px;
+
+    border: 1px solid #e4e7ec;
+
+    border-radius: 8px;
+
+    background: #f8fafc;
+
+    color: #344054;
+
+    font-size: 15px;
+}
+
+
+/* ==========================================
+   MOBILE NAVIGATION
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .navbar {
+        height: 64px;
+
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .menu-button {
+        display: flex;
+
+        position: relative;
+
+        z-index: 10002;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.menu-open {
+        display: flex;
+
+        position: absolute;
+
+        top: 64px;
+        left: 0;
+        right: 0;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 8px 5% 12px;
+
+        background: #ffffff;
+
+        border-bottom: 1px solid #e4e7ec;
+
+        box-shadow:
+            0 10px 25px rgba(16, 24, 40, 0.08);
+
+        z-index: 10001;
+    }
+
+    .nav-links.menu-open a {
+        display: block;
+
+        width: 100%;
+
+        padding: 14px 4px;
+
+        border-bottom: 1px solid #f0f2f5;
+
+        color: #344054;
+
+        font-size: 15px;
+    }
+
+    .nav-links.menu-open a:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links.menu-open a:hover {
+        color: #6b5cff;
+    }
+
+    .nav-links.menu-open a::after {
+        display: none;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        padding: 70px 5% 65px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+
+        letter-spacing: -1px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+
+    /* SEARCH */
+
+    .search-box {
+        flex-direction: column;
+
+        padding: 5px;
+    }
+
+    .search-box input {
+        width: 100%;
+
+        padding: 13px;
+    }
+
+    .search-box button {
+        width: 100%;
+
+        min-height: 44px;
+    }
+
+
+    /* SECTIONS */
+
+    .tools-section,
+    .categories-section {
+        padding: 60px 5%;
+    }
+
+    .section-heading {
+        margin-bottom: 32px;
+    }
+
+    .section-heading h2 {
+        font-size: 28px;
+    }
+
+    .section-heading p {
+        font-size: 15px;
+    }
+
+
+    /* TOOLS */
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .tool-card {
+        min-height: auto;
+
+        padding: 20px;
+
+        gap: 14px;
+    }
+
+    .tool-icon {
+        flex: 0 0 46px;
+
+        width: 46px;
+        height: 46px;
+
+        font-size: 20px;
+    }
+
+
+    /* CATEGORIES */
+
+    .category-grid {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    /* ABOUT */
+
+    .about-section {
+        padding: 65px 5%;
+    }
+
+    .about-content h2 {
+        font-size: 28px;
+    }
+
+    .about-content p {
+        font-size: 15px;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        flex-direction: column;
+
+        justify-content: center;
+
+        text-align: center;
+
+        padding: 30px 5%;
+    }
+
+
+    /* TOOL PAGES */
+
+    .tool-page {
+        padding: 50px 5%;
+    }
+
+    .tool-page-header h1 {
+        font-size: 28px;
+    }
+
+    .tool-form,
+    .calculator-card,
+    .tool-container {
+        padding: 22px 18px;
+    }
+}
+
+
+/* ==========================================
+   TABLET
+   ========================================== */
+
+@media (min-width: 651px) and (max-width: 900px) {
+
+    .navbar {
+        padding: 0 4%;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .hero {
+        padding: 85px 5%;
+    }
+
+    .tools-section,
+    .categories-section {
+        padding: 70px 4%;
+    }
+
+    .tools-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .category-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .tool-page {
+        padding: 60px 5%;
+    }
+}
+
+
+
+/* ==========================================
+   TOOLNEST - TOOL PAGE GENERAL STYLE
+   ========================================== */
+
+.tool-page {
+    min-height: calc(100vh - 70px);
+    padding: 70px 5% 90px;
+    background: #f8fafc;
+}
+
+
+/* ==========================================
+   TOOL PAGE CONTAINER
+   ========================================== */
+
+.tool-page-container {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+
+/* ==========================================
+   TOOL PAGE HEADER
+   ========================================== */
+
+.tool-page-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.tool-page-header > span {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: #6b5cff;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.tool-page-header h1 {
+    margin: 0 0 12px;
+
+    color: #101828;
+
+    font-size: 38px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+.tool-page-header p {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    color: #667085;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   MAIN CALCULATOR CARD
+   ========================================== */
+
+.calculator-card {
+    width: 100%;
+
+    padding: 32px;
+
+    background: #ffffff;
+
+    border: 1px solid #e4e7ec;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 20px rgba(16, 24, 40, 0.05);
+}
+
+
+/* ==========================================
+   FORM GROUP
+   ========================================== */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #344054;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   INPUTS
+   ========================================== */
+
+.calculator-card input,
+.calculator-card select,
+.calculator-card textarea {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #d0d5dd;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #101828;
+
+    font-size: 15px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.calculator-card input::placeholder,
+.calculator-card textarea::placeholder {
+    color: #98a2b3;
+}
+
+.calculator-card input:focus,
+.calculator-card select:focus,
+.calculator-card textarea:focus {
+    border-color: #8f85ff;
+
+    box-shadow:
+        0 0 0 3px rgba(107, 92, 255, 0.10);
+}
+
+
+/* ==========================================
+   CALCULATOR BUTTON
+   ========================================== */
+
+.calculator-card button {
+    width: 100%;
+
+    min-height: 46px;
+
+    margin-top: 5px;
+
+    padding: 0 20px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #6b5cff;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.calculator-card button:hover {
+    background: #5748e8;
+}
+
+.calculator-card button:active {
+    transform: scale(0.98);
+}
+
+
+/* ==========================================
+   RESULT AREA
+   ========================================== */
+
+.result-box {
+    margin-top: 25px;
+
+    padding: 20px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e4e7ec;
+
+    border-radius: 8px;
+}
+
+.result-box h3 {
+    margin: 0 0 8px;
+
+    color: #101828;
+
+    font-size: 16px;
+}
+
+.result-box p {
+    margin: 0;
+
+    color: #475467;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   TOOL INFORMATION SECTION
+   ========================================== */
+
+.tool-info {
+    margin-top: 25px;
+
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e4e7ec;
+
+    border-radius: 12px;
+}
+
+.tool-info h2 {
+    margin: 0 0 10px;
+
+    color: #101828;
+
+    font-size: 20px;
+}
+
+.tool-info p {
+    margin: 0;
+
+    color: #667085;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   MOBILE TOOL PAGE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .tool-page {
+        padding: 50px 5% 70px;
+    }
+
+    .tool-page-header {
+        margin-bottom: 28px;
+    }
+
+    .tool-page-header h1 {
+        font-size: 30px;
+    }
+
+    .tool-page-header p {
+        font-size: 14px;
+    }
+
+    .calculator-card {
+        padding: 22px 18px;
+    }
+
+    .tool-info {
+        padding: 20px 18px;
+    }
+
+    .tool-info h2 {
+        font-size: 18px;
+    }
+
+}
+
+
+/* ==========================================
+   TOOL CALCULATOR PAGES
+   ========================================== */
+
+.calculator-page {
+    min-height: calc(100vh - 70px);
+
+    padding: 75px 5% 85px;
+
+    background: #f8fafc;
+
+    display: flex;
+    justify-content: center;
+}
+
+.calculator-container {
+    width: 100%;
+    max-width: 700px;
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   CALCULATOR TITLE
+   ========================================== */
+
+.calculator-container .hero-badge {
+    display: inline-block;
+
+    margin-bottom: 16px;
+
+    padding: 7px 13px;
+
+    border: 1px solid #ddd8ff;
+    border-radius: 20px;
+
+    background: #f5f3ff;
+
+    color: #6b5cff;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.calculator-container h1 {
+    margin: 0 0 12px;
+
+    color: #101828;
+
+    font-size: 38px;
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.5px;
+}
+
+.calculator-description {
+    max-width: 600px;
+
+    margin: 0 auto 35px;
+
+    color: #667085;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   CALCULATOR BOX
+   ========================================== */
+
+.calculator-box {
+    width: 100%;
+
+    padding: 32px;
+
+    text-align: left;
+
+    background: #ffffff;
+
+    border: 1px solid #e4e7ec;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 6px 22px rgba(16, 24, 40, 0.05);
+}
+
+
+/* ==========================================
+   LABELS
+   ========================================== */
+
+.calculator-box label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #344054;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   INPUTS
+   ========================================== */
+
+.calculator-box input {
+    width: 100%;
+
+    height: 48px;
+
+    margin-bottom: 22px;
+
+    padding: 0 14px;
+
+    border: 1px solid #d0d5dd;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #101828;
+
+    font-size: 15px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.calculator-box input::placeholder {
+    color: #98a2b3;
+}
+
+.calculator-box input:focus {
+    border-color: #8f85ff;
+
+    box-shadow:
+        0 0 0 3px rgba(107, 92, 255, 0.10);
+}
+
+
+/* ==========================================
+   CALCULATE BUTTON
+   ========================================== */
+
+.calculate-button {
+    width: 100%;
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #6b5cff;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.calculate-button:hover {
+    background: #5748e8;
+}
+
+.calculate-button:active {
+    transform: scale(0.98);
+}
+
+
+/* ==========================================
+   RESULT
+   ========================================== */
+
+.calculator-result {
+    margin-top: 22px;
+
+    padding: 18px;
+
+    border: 1px solid #e4e7ec;
+
+    border-radius: 8px;
+
+    background: #f8fafc;
+
+    color: #475467;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .calculator-page {
+        padding: 55px 5% 70px;
+    }
+
+    .calculator-container h1 {
+        font-size: 30px;
+    }
+
+    .calculator-description {
+        font-size: 15px;
+
+        margin-bottom: 28px;
+    }
+
+    .calculator-box {
+        padding: 22px 18px;
+    }
+
+    .calculator-box input {
+        height: 46px;
+    }
+
+    .calculate-button {
+        height: 46px;
+    }
+
+}
+
+
+/* ==========================================
+   GPA CALCULATOR - ADD COURSE BUTTON
+   ========================================== */
+
+#addCourse {
+    width: 40%;
+    height: 46px;
+    margin-top: 7px;
+    border: 1px solid #6b5cff;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #6b5cff;
+    font-size: 14px;
+    font-weight: 700;
+    align-self: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#addCourse:hover {
+    background: #f5f3ff;
+    border-color: #5748e8;
+    color: #5748e8;
+}
+
+#addCourse:active {
+    transform: scale(0.98);
+}
+
+
+/* ==========================================
+   GENERAL CLEAR BUTTON
+   ========================================== */
+
+.clear-button {
+    width: 100%;
+    height: 46px;
+    margin-top: 10px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #475467;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clear-button:hover {
+    background: #f8fafc;
+    border-color: #98a2b3;
+    color: #101828;
+}
+
+.clear-button:active {
+    transform: scale(0.98);
+}
+
+
+/* ==========================================
+   LOAN TERM ROW
+   ========================================== */
+
+.loan-term-row {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.loan-term-row input {
+    flex: 1;
+    width: auto;
+    margin-bottom: 0;
+}
+
+.loan-term-row select {
+    flex: 1;
+    width: auto;
+    height: 48px;
+    padding: 0 14px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    outline: none;
+    background: #ffffff;
+    color: #101828;
+    font-size: 15px;
+    cursor: pointer;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.loan-term-row select:focus {
+    border-color: #8f85ff;
+    box-shadow:
+        0 0 0 3px rgba(107, 92, 255, 0.10);
+}
+
+
+/* ==========================================
+   LOAN TERM ROW - MOBILE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .loan-term-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .loan-term-row input {
+        width: 100%;
+        margin-bottom: 22px;
+    }
+
+    .loan-term-row select {
+        width: 100%;
+        height: 46px;
+        margin-bottom: 0;
+    }
+
+}
+
+/* ==========================================
+   STEP 19 - TOOL CARD POLISH
+   ========================================== */
+
+.tool-card {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.tool-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #6b5cff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(16, 24, 40, 0.10);
+    border-color: #d9d4ff;
+}
+
+.tool-card:hover::before {
+    transform: scaleX(1);
+}
+
+.tool-card h3 {
+    transition: color 0.2s ease;
+}
+
+.tool-card:hover h3 {
+    color: #6b5cff;
+}
+
+
+/* ==========================================
+   STEP 19 - MOBILE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .tool-card:hover {
+        transform: translateY(-2px);
+    }
+
+}
+
+/* ==========================================
+   STEP 20 - CATEGORY CARD POLISH
+   ========================================== */
+
+.category-card {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.category-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #6b5cff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(16, 24, 40, 0.09);
+    border-color: #d9d4ff;
+}
+
+.category-card:hover::before {
+    transform: scaleX(1);
+}
+
+.category-card h3 {
+    transition: color 0.2s ease;
+}
+
+.category-card:hover h3 {
+    color: #6b5cff;
+}
+
+
+/* ==========================================
+   STEP 20 - MOBILE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .category-card:hover {
+        transform: translateY(-2px);
+    }
+
+}
+
+/* ==========================================
+   STEP 21 - ABOUT SECTION POLISH
+   ========================================== */
+
+.about-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section h2 {
+    margin-bottom: 18px;
+    font-size: 32px;
+    line-height: 1.2;
+    color: #101828;
+}
+
+.about-section p {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+    color: #667085;
+}
+
+
+/* Small decorative line */
+
+.about-section h2::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 3px;
+    margin: 14px auto 0;
+    background: #6b5cff;
+    border-radius: 10px;
+}
+
+
+/* ==========================================
+   STEP 21 - MOBILE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .about-section h2 {
+        font-size: 27px;
+    }
+
+    .about-section p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+}
+
+/* ==========================================
+   STEP 22 - FOOTER POLISH
+   ========================================== */
+
+.footer {
+    border-top: 1px solid #e4e7ec;
+    background: #ffffff;
+    padding: 32px 20px;
+}
+
+.footer p {
+    margin: 0;
+    color: #667085;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer .logo {
+    margin-bottom: 8px;
+}
+
+
+/* ==========================================
+   STEP 22 - MOBILE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .footer {
+        padding: 26px 16px;
+        text-align: center;
+    }
+
+    .footer p {
+        font-size: 13px;
+    }
+
+}
+
+/* ==========================================
+   STEP 23 - SEARCH BAR POLISH
+   ========================================== */
+
+.search-box {
+    transition:
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.search-box:focus-within {
+    border-color: #6b5cff;
+    box-shadow: 0 0 0 4px rgba(107, 92, 255, 0.10);
+}
+
+.search-box input {
+    transition: border-color 0.2s ease;
+}
+
+.search-box input:focus {
+    outline: none;
+}
+
+.search-box button {
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.search-box button:hover {
+    background: #5848e8;
+}
+
+.search-box button:active {
+    transform: scale(0.98);
+}
+
+
+/* ==========================================
+   STEP 23 - MOBILE SEARCH
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .search-box {
+        width: 100%;
+    }
+
+    .search-box input {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .search-box button {
+        white-space: nowrap;
+    }
+
+}
+
+/* ==========================================
+   STEP 24 - HERO SECTION POLISH
+   ========================================== */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+.hero .badge {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.hero .badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(107, 92, 255, 0.12);
+}
+
+
+/* ==========================================
+   STEP 24 - MOBILE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .hero h1 {
+        font-size: 36px;
+        line-height: 1.2;
+        letter-spacing: -0.3px;
+    }
+
+    .hero p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+}
+
+/* ==========================================
+   STEP 25 - NAVBAR POLISH
+   ========================================== */
+
+.navbar {
+    box-shadow: 0 1px 8px rgba(16, 24, 40, 0.04);
+}
+
+.nav-links a {
+    position: relative;
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    width: 0;
+    height: 2px;
+    background: #6b5cff;
+    border-radius: 10px;
+    transform: translateX(-50%);
+    transition: width 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #6b5cff;
+}
+
+.nav-links a:hover::after {
+    width: 70%;
+}
+
+.menu-button {
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.menu-button:hover {
+    color: #6b5cff;
+    background: #f4f2ff;
+}
+
+.menu-button:active {
+    transform: scale(0.95);
+}
+
+
+/* ==========================================
+   STEP 25 - MOBILE NAVIGATION
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .nav-links a:hover {
+        background: #f4f2ff;
+        border-radius: 8px;
+    }
+
+}
+
+/* ==========================================
+   STEP 26 - BACK TO TOP
+   ========================================== */
+
+#backToTop {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #6b5cff;
+    color: white;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+#backToTop.show {
+    display: flex;
+}
+
+#backToTop:hover {
+    background: #5848e8;
+}
+
+@media (max-width: 650px) {
+
+    #backToTop {
+        right: 15px;
+        bottom: 15px;
+        width: 44px;
+        height: 44px;
+    }
+
+}
+
+/* ==========================================
+   STEP 27 - POPULAR TOOL CARD POLISH
+   ========================================== */
+
+.tool-card {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(16, 24, 40, 0.10);
+    border-color: #d9d4ff;
+}
+
+.tool-card h3 {
+    transition: color 0.2s ease;
+}
+
+.tool-card:hover h3 {
+    color: #6b5cff;
+}
+
+
+/* ==========================================
+   STEP 27 - TOOL CARD BUTTON/LINK
+   ========================================== */
+
+.tool-card a {
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.tool-card a:hover {
+    color: #5848e8;
+}
+
+
+/* ==========================================
+   STEP 27 - MOBILE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .tool-card:hover {
+        transform: translateY(-3px);
+    }
+
+}
+
+/* ==========================================
+   STEP 28 - CALCULATOR RESULT POLISH
+   ========================================== */
+
+.calculator-result {
+    margin-top: 20px;
+    padding: 20px;
+
+    background: #f8f7ff;
+    border: 1px solid #e2ddff;
+    border-radius: 12px;
+
+    color: #101828;
+    font-size: 16px;
+    line-height: 1.7;
+
+    min-height: 24px;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+/* Result numbers */
+
+.calculator-result strong {
+    color: #6b5cff;
+}
+
+
+/* ==========================================
+   STEP 28 - CALCULATOR BUTTON POLISH
+   ========================================== */
+
+.calculate-button,
+.clear-button {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.calculate-button:hover,
+.clear-button:hover {
+    transform: translateY(-1px);
+}
+
+.calculate-button:active,
+.clear-button:active {
+    transform: scale(0.98);
+}
+
+
+/* ==========================================
+   STEP 28 - MOBILE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .calculator-result {
+        padding: 16px;
+        font-size: 15px;
+    }
+
+    .calculate-button,
+    .clear-button {
+        width: 100%;
+    }
+
+}
+
+/* ==========================================
+   STEP 29 - TOOL PAGE POLISH
+   ========================================== */
+
+.calculator-page {
+    min-height: calc(100vh - 70px);
+    padding: 60px 20px 80px;
+}
+
+.calculator-container {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.calculator-container h1 {
+    margin: 0 0 12px;
+    text-align: center;
+    color: #101828;
+    font-size: 34px;
+    line-height: 1.2;
+}
+
+.calculator-description {
+    margin: 0 auto 30px;
+    max-width: 520px;
+    text-align: center;
+    color: #667085;
+    line-height: 1.7;
+}
+
+.calculator-box {
+    background: #ffffff;
+    border: 1px solid #e4e7ec;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(16, 24, 40, 0.06);
+}
+
+.calculator-box label {
+    display: block;
+    margin-bottom: 8px;
+    color: #344054;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.calculator-box input,
+.calculator-box select {
+    box-sizing: border-box;
+    width: 100%;
+    height: 48px;
+    margin-bottom: 20px;
+    padding: 0 14px;
+
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: #101828;
+
+    font-size: 15px;
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.calculator-box input:focus,
+.calculator-box select:focus {
+    border-color: #6b5cff;
+    box-shadow: 0 0 0 3px rgba(107, 92, 255, 0.10);
+}
+
+
+/* ==========================================
+   STEP 29 - MOBILE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .calculator-page {
+        padding: 40px 16px 60px;
+    }
+
+    .calculator-container h1 {
+        font-size: 28px;
+    }
+
+    .calculator-description {
+        font-size: 15px;
+        margin-bottom: 24px;
+    }
+
+    .calculator-box {
+        padding: 22px 18px;
+        border-radius: 12px;
+    }
+
+}
+
+/* ==========================================
+   STEP 30 - TOOL PAGE NAVIGATION
+   ========================================== */
+
+.calculator-page + .footer {
+    margin-top: 0;
+}
+
+.tool-page,
+.calculator-page {
+    scroll-margin-top: 80px;
+}
+
+
+/* Navbar links on tool pages */
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: #344054;
+    font-weight: 500;
+}
+
+.navbar .nav-links a:hover {
+    color: #6b5cff;
+}
+
+
+/* Tool page navigation spacing */
+
+.calculator-container {
+    position: relative;
+}
+
+.calculator-container h1 {
+    letter-spacing: -0.4px;
+}
+
+
+/* ==========================================
+   STEP 30 - MOBILE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .navbar .nav-links a {
+        font-size: 15px;
+    }
+
+}
+
+/* ==========================================
+   STEP 31 - TOOL PAGE FOOTER
+   ========================================== */
+
+.tool-footer {
+    background: #ffffff;
+    border-top: 1px solid #e4e7ec;
+    padding: 28px 20px;
+    text-align: center;
+}
+
+.tool-footer .logo {
+    margin-bottom: 8px;
+}
+
+.tool-footer p {
+    margin: 0;
+    color: #667085;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.tool-footer a {
+    color: #6b5cff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.tool-footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==========================================
+   STEP 31 - MOBILE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .tool-footer {
+        padding: 24px 16px;
+    }
+
+    .tool-footer p {
+        font-size: 13px;
+    }
+
+}
+
+/* ==========================================
+   STEP 33 - BACK HOME LINK
+   ========================================== */
+
+.back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    margin-bottom: 22px;
+
+    color: #6b5cff;
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.back-home:hover {
+    color: #5848e8;
+    transform: translateX(-2px);
+}
+
+
+/* ==========================================
+   STEP 33 - MOBILE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .back-home {
+        margin-bottom: 18px;
+        font-size: 14px;
+    }
+
+}
+
+/* ==========================================
+   STEP 37 - ABOUT NOTE
+   ========================================== */
+
+.about-note {
+    margin-top: 18px !important;
+    font-size: 14px;
+    color: #667085;
+    font-style: italic;
+}
+
+
+/* ==========================================
+   STEP 38 - CONTACT SECTION
+   ========================================== */
+
+.contact-section {
+    padding: 80px 20px;
+    background: #ffffff;
+    text-align: center;
+    border-top: 1px solid #e4e7ec;
+}
+
+.contact-container {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.contact-section .section-label {
+    display: inline-block;
+    margin-bottom: 12px;
+
+    color: #6b5cff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.contact-section h2 {
+    margin: 0 0 14px;
+    color: #101828;
+    font-size: 32px;
+}
+
+.contact-section p {
+    max-width: 560px;
+    margin: 0 auto 25px;
+
+    color: #667085;
+    line-height: 1.7;
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 24px;
+
+    background: #6b5cff;
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.contact-button:hover {
+    background: #5848e8;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(107, 92, 255, 0.18);
+}
+
+
+/* ==========================================
+   STEP 38 - MOBILE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .contact-section {
+        padding: 60px 16px;
+    }
+
+    .contact-section h2 {
+        font-size: 27px;
+    }
+
+    .contact-section p {
+        font-size: 15px;
+    }
+
+    .contact-button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+}
+
+
+/* ==========================================
+   STEP 39 - PRIVACY POLICY
+   ========================================== */
+
+.policy-page {
+    min-height: calc(100vh - 70px);
+    padding: 60px 20px 80px;
+    background: #f8fafc;
+}
+
+.policy-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 40px;
+    border: 1px solid #e4e7ec;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(16, 24, 40, 0.05);
+}
+
+.policy-container h1 {
+    margin: 0 0 8px;
+    color: #101828;
+    font-size: 36px;
+}
+
+.policy-updated {
+    margin: 0 0 35px;
+    color: #667085;
+    font-size: 14px;
+}
+
+.policy-section {
+    margin-bottom: 30px;
+}
+
+.policy-section h2 {
+    margin-bottom: 10px;
+    color: #101828;
+    font-size: 21px;
+}
+
+.policy-section p {
+    margin: 0;
+    color: #667085;
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+   STEP 39 - MOBILE
+   ========================================== */
+
+@media (max-width: 650px) {
+
+    .policy-page {
+        padding: 35px 16px 60px;
+    }
+
+    .policy-container {
+        padding: 24px 20px;
+        border-radius: 12px;
+    }
+
+    .policy-container h1 {
+        font-size: 29px;
+    }
+
+    .policy-section h2 {
+        font-size: 19px;
+    }
+
+}

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Percentage Change Calculator - ToolNest</title>
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="../index.html">Home</a>
+
+        <a href="../index.html#tools">Tools</a>
+
+        <a href="../index.html#categories">Categories</a>
+
+        <a href="../index.html#about">About</a>
+
+    </nav>
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
+
+</header>
+
+
+    <!-- PERCENTAGE CHANGE CALCULATOR -->
+
+    <main class="calculator-page">
+
+        <div class="calculator-container">
+
+            <a href="../index.html" class="back-home">
+    ← Back to ToolNest
+</a>
+
+            <h1>
+                Percentage Change Calculator
+            </h1>
+
+            <p class="calculator-description">
+                Calculate the percentage increase or decrease between two values.
+            </p>
+
+
+            <div class="calculator-box">
+
+                <label for="oldValue">
+                    Original Value
+                </label>
+
+                <input
+                    type="number"
+                    id="oldValue"
+                    placeholder="Enter original value"
+                    step="any"
+                >
+
+
+                <label for="newValue">
+                    New Value
+                </label>
+
+                <input
+                    type="number"
+                    id="newValue"
+                    placeholder="Enter new value"
+                    step="any"
+                >
+
+
+                <button
+                    type="button"
+                    class="calculate-button"
+                    id="calculateChange"
+                >
+                    Calculate Change
+                </button>
+
+                <button type="button" class="clear-button">
+    Clear
+</button>
+
+
+                <div
+                    class="calculator-result"
+                    id="changeResult"
+                >
+                    Your result will appear here.
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="tool-footer">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <p>
+        Simple tools for everyday life.
+    </p>
+
+    <p>
+        © 2026 ToolNest. All rights reserved.
+    </p>
+
+</footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const oldValue =
+            document.getElementById("oldValue");
+
+        const newValue =
+            document.getElementById("newValue");
+
+        const calculateChange =
+            document.getElementById("calculateChange");
+
+        const changeResult =
+            document.getElementById("changeResult");
+
+
+        calculateChange.addEventListener(
+            "click",
+            function () {
+
+                const oldNumber =
+                    Number(oldValue.value);
+
+                const newNumber =
+                    Number(newValue.value);
+
+
+                if (
+                    oldValue.value === "" ||
+                    newValue.value === ""
+                ) {
+
+                    changeResult.textContent =
+                        "Please enter both values.";
+
+                    return;
+
+                }
+
+
+                if (oldNumber === 0) {
+
+                    changeResult.textContent =
+                        "The original value cannot be zero.";
+
+                    return;
+
+                }
+
+
+                const difference =
+                    newNumber - oldNumber;
+
+
+                const percentageChange =
+                    (difference / oldNumber) * 100;
+
+
+                if (percentageChange > 0) {
+
+                    changeResult.innerHTML =
+                        `
+                        <strong>
+                            Increase: ${percentageChange.toFixed(2)}%
+                        </strong>
+                        <br><br>
+                        Difference: ${difference.toFixed(2)}
+                        `;
+
+                } else if (percentageChange < 0) {
+
+                    changeResult.innerHTML =
+                        `
+                        <strong>
+                            Decrease: ${Math.abs(percentageChange).toFixed(2)}%
+                        </strong>
+                        <br><br>
+                        Difference: ${Math.abs(difference).toFixed(2)}
+                        `;
+
+                } else {
+
+                    changeResult.innerHTML =
+                        `
+                        <strong>
+                            No change: 0%
+                        </strong>
+                        `;
+
+                }
+
+            }
+        );
+
+
+    // ==========================================
+    // PERCENTAGE CHANGE CLEAR BUTTON
+    // ==========================================
+
+    const clearButton =
+        document.querySelector(".clear-button");
+
+    clearButton.addEventListener("click", function () {
+
+        // Clear original value
+        oldValue.value = "";
+
+        // Clear new value
+        newValue.value = "";
+
+        // Reset result
+        changeResult.innerHTML =
+            "Your result will appear here.";
+
+    });
+
+</script>
+
+    <script>
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuButton && navLinks) {
+
+    menuButton.addEventListener("click", function () {
+
+        navLinks.classList.toggle("menu-open");
+
+    });
+
+    const menuItems = navLinks.querySelectorAll("a");
+
+    menuItems.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("menu-open");
+
+        });
+
+    });
+
+}
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>

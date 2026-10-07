@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>GPA Calculator - ToolNest</title>
+
+    <meta
+        name="description"
+        content="Calculate your GPA quickly with ToolNest's free GPA calculator."
+    >
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="../index.html">Home</a>
+
+        <a href="../index.html#tools">Tools</a>
+
+        <a href="../index.html#categories">Categories</a>
+
+        <a href="../index.html#about">About</a>
+
+    </nav>
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
+
+</header>
+
+    <!-- GPA CALCULATOR -->
+
+    <main>
+
+        <section class="calculator-page">
+
+            <div class="calculator-container">
+
+                <a href="../index.html" class="back-home">
+    ← Back to ToolNest
+</a>
+
+                <span class="hero-badge">
+                    EDUCATION TOOL
+                </span>
+
+                <h1>
+                    GPA Calculator
+                </h1>
+
+                <p class="calculator-description">
+                    Enter your courses, credit units and grades
+                    to calculate your GPA.
+                </p>
+
+
+                <div class="calculator-box">
+
+                    <div id="courseList">
+
+                        <!-- COURSE 1 -->
+
+                        <div class="course-row">
+
+                            <input
+                                type="text"
+                                class="course-name"
+                                placeholder="Course name"
+                            >
+
+                            <input
+                                type="number"
+                                class="credit-unit"
+                                placeholder="Units"
+                                min="1"
+                                max="10"
+                            >
+
+                            <select class="grade">
+
+                                <option value="">
+                                    Grade
+                                </option>
+
+                                <option value="5">
+                                    A
+                                </option>
+
+                                <option value="4">
+                                    B
+                                </option>
+
+                                <option value="3">
+                                    C
+                                </option>
+
+                                <option value="2">
+                                    D
+                                </option>
+
+                                <option value="1">
+                                    E
+                                </option>
+
+                                <option value="0">
+                                    F
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- COURSE 2 -->
+
+                        <div class="course-row">
+
+                            <input
+                                type="text"
+                                class="course-name"
+                                placeholder="Course name"
+                            >
+
+                            <input
+                                type="number"
+                                class="credit-unit"
+                                placeholder="Units"
+                                min="1"
+                                max="10"
+                            >
+
+                            <select class="grade">
+
+                                <option value="">
+                                    Grade
+                                </option>
+
+                                <option value="5">
+                                    A
+                                </option>
+
+                                <option value="4">
+                                    B
+                                </option>
+
+                                <option value="3">
+                                    C
+                                </option>
+
+                                <option value="2">
+                                    D
+                                </option>
+
+                                <option value="1">
+                                    E
+                                </option>
+
+                                <option value="0">
+                                    F
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        id="addCourse"
+                        class="secondary-button"
+                    >
+                        + Add Course
+                    </button>
+
+
+                    <button
+                        id="calculateGpa"
+                        class="calculate-button"
+                    >
+                        Calculate GPA
+                    </button>
+
+                    <button id="clearButton" class="clear-button">
+    Clear
+</button>
+
+
+                    <div
+                        id="gpaResult"
+                        class="calculator-result"
+                    >
+                        Enter your courses to calculate your GPA.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="tool-footer">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <p>
+        Simple tools for everyday life.
+    </p>
+
+    <p>
+        © 2026 ToolNest. All rights reserved.
+    </p>
+
+</footer>
+
+    <script>
+
+        const courseList =
+            document.getElementById("courseList");
+
+        const addCourse =
+            document.getElementById("addCourse");
+
+        const calculateGpa =
+            document.getElementById("calculateGpa");
+
+        const gpaResult =
+            document.getElementById("gpaResult");
+
+
+        // ==========================================
+        // ADD COURSE
+        // ==========================================
+
+        addCourse.addEventListener(
+            "click",
+            function() {
+
+                const row =
+                    document.createElement("div");
+
+                row.className =
+                    "course-row";
+
+                row.innerHTML = `
+
+                    <input
+                        type="text"
+                        class="course-name"
+                        placeholder="Course name"
+                    >
+
+                    <input
+                        type="number"
+                        class="credit-unit"
+                        placeholder="Units"
+                        min="1"
+                        max="10"
+                    >
+
+                    <select class="grade">
+
+                        <option value="">
+                            Grade
+                        </option>
+
+                        <option value="5">
+                            A
+                        </option>
+
+                        <option value="4">
+                            B
+                        </option>
+
+                        <option value="3">
+                            C
+                        </option>
+
+                        <option value="2">
+                            D
+                        </option>
+
+                        <option value="1">
+                            E
+                        </option>
+
+                        <option value="0">
+                            F
+                        </option>
+
+                    </select>
+
+                `;
+
+                courseList.appendChild(row);
+
+            }
+        );
+
+
+        // ==========================================
+        // CALCULATE GPA
+        // ==========================================
+
+        calculateGpa.addEventListener(
+            "click",
+            function() {
+
+                const rows =
+                    document.querySelectorAll(
+                        ".course-row"
+                    );
+
+                let totalPoints = 0;
+                let totalUnits = 0;
+                let validCourses = 0;
+
+
+                rows.forEach(function(row) {
+
+                    const units =
+                        Number(
+                            row.querySelector(
+                                ".credit-unit"
+                            ).value
+                        );
+
+                    const grade =
+                        row.querySelector(
+                            ".grade"
+                        ).value;
+
+
+                    if (
+                        units > 0 &&
+                        grade !== ""
+                    ) {
+
+                        totalPoints +=
+                            units * Number(grade);
+
+                        totalUnits +=
+                            units;
+
+                        validCourses++;
+
+                    }
+
+                });
+
+
+                if (validCourses === 0) {
+
+                    gpaResult.textContent =
+                        "Please enter at least one course, credit unit and grade.";
+
+                    return;
+                }
+
+
+                const gpa =
+                    totalPoints / totalUnits;
+
+
+                gpaResult.textContent =
+                    `Your GPA is ${gpa.toFixed(2)} / 5.00`;
+
+            }
+        );
+
+    </script>
+
+
+<script>
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuButton && navLinks) {
+
+    menuButton.addEventListener("click", function () {
+
+        navLinks.classList.toggle("menu-open");
+
+    });
+
+    const menuItems = navLinks.querySelectorAll("a");
+
+    menuItems.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("menu-open");
+
+        });
+
+    });
+
+}
+
+// ==========================================
+// CLEAR GPA CALCULATOR
+// ==========================================
+
+const clearButton = document.getElementById("clearButton");
+
+if (clearButton) {
+
+    clearButton.addEventListener("click", function () {
+
+        // Clear all course rows
+        document.querySelectorAll(".course-row").forEach(function (row) {
+            row.querySelector(".course-name").value = "";
+            row.querySelector(".credit-unit").value = "";
+            row.querySelector(".grade").value = "";
+        });
+
+        // Remove extra courses added with + Add Course
+        const rows = document.querySelectorAll(".course-row");
+
+        rows.forEach(function (row, index) {
+            if (index >= 2) {
+                row.remove();
+            }
+        });
+
+        // Reset GPA result
+        gpaResult.textContent =
+            "Enter your courses to calculate your GPA.";
+    });
+
+}
+
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>

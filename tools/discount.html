@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Discount Calculator - ToolNest</title>
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="../index.html">Home</a>
+
+        <a href="../index.html#tools">Tools</a>
+
+        <a href="../index.html#categories">Categories</a>
+
+        <a href="../index.html#about">About</a>
+
+    </nav>
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
+
+</header>
+
+    <!-- DISCOUNT CALCULATOR -->
+
+    <main class="calculator-page">
+
+        <div class="calculator-container">
+
+            <a href="../index.html" class="back-home">
+    ← Back to ToolNest
+</a>
+
+            <h1>
+                Discount Calculator
+            </h1>
+
+            <p class="calculator-description">
+                Calculate your discount and final price quickly.
+            </p>
+
+
+            <div class="calculator-box">
+
+                <label for="originalPrice">
+                    Original Price
+                </label>
+
+                <input
+                    type="number"
+                    id="originalPrice"
+                    placeholder="Enter original price"
+                    step="any"
+                >
+
+
+                <label for="discountPercentage">
+                    Discount Percentage (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="discountPercentage"
+                    placeholder="Example: 20"
+                    step="any"
+                >
+
+
+                <button
+                    type="button"
+                    class="calculate-button"
+                    id="calculateDiscount"
+                >
+                    Calculate Discount
+                </button>
+
+                <button type="button" class="clear-button">
+    Clear
+</button>
+
+
+                <div
+                    class="calculator-result"
+                    id="discountResult"
+                >
+                    Your result will appear here.
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="tool-footer">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <p>
+        Simple tools for everyday life.
+    </p>
+
+    <p>
+        © 2026 ToolNest. All rights reserved.
+    </p>
+
+</footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const originalPrice =
+            document.getElementById("originalPrice");
+
+        const discountPercentage =
+            document.getElementById("discountPercentage");
+
+        const calculateDiscount =
+            document.getElementById("calculateDiscount");
+
+        const discountResult =
+            document.getElementById("discountResult");
+
+
+        calculateDiscount.addEventListener(
+            "click",
+            function () {
+
+                const price =
+                    Number(originalPrice.value);
+
+                const percentage =
+                    Number(discountPercentage.value);
+
+
+                if (
+                    originalPrice.value === "" ||
+                    discountPercentage.value === ""
+                ) {
+
+                    discountResult.textContent =
+                        "Please enter the original price and discount percentage.";
+
+                    return;
+
+                }
+
+
+                if (
+                    price < 0 ||
+                    percentage < 0 ||
+                    percentage > 100
+                ) {
+
+                    discountResult.textContent =
+                        "Please enter valid values.";
+
+                    return;
+
+                }
+
+
+                const discount =
+                    price * (percentage / 100);
+
+                const finalPrice =
+                    price - discount;
+
+
+                discountResult.innerHTML =
+                    `
+                    Discount: ${discount.toFixed(2)}
+                    <br>
+                    Final Price: ${finalPrice.toFixed(2)}
+                    `;
+
+            }
+        );
+
+    </script>
+
+
+<script>
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuButton && navLinks) {
+
+    menuButton.addEventListener("click", function () {
+
+        navLinks.classList.toggle("menu-open");
+
+    });
+
+    const menuItems = navLinks.querySelectorAll("a");
+
+    menuItems.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("menu-open");
+
+        });
+
+    });
+
+}
+</script>
+<script>
+
+    const clearButton =
+        document.querySelector(".clear-button");
+
+    clearButton.addEventListener("click", function () {
+
+        originalPrice.value = "";
+
+        discountPercentage.value = "";
+
+        discountResult.textContent =
+            "Your result will appear here.";
+
+    });
+
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>

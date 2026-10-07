@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Currency Converter - ToolNest</title>
+
+    <meta
+        name="description"
+        content="Convert currencies with ToolNest's free online currency converter."
+    >
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="../index.html">Home</a>
+
+        <a href="../index.html#tools">Tools</a>
+
+        <a href="../index.html#categories">Categories</a>
+
+        <a href="../index.html#about">About</a>
+
+    </nav>
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
+
+</header>
+
+    <!-- CURRENCY CONVERTER -->
+
+    <main>
+
+        <section class="calculator-page">
+
+            <div class="calculator-container">
+
+                <a href="../index.html" class="back-home">
+    ← Back to ToolNest
+</a>
+
+                <span class="hero-badge">
+                    FINANCE TOOL
+                </span>
+
+                <h1>
+                    Currency Converter
+                </h1>
+
+                <p class="calculator-description">
+                    Convert between currencies using current
+                    exchange-rate data.
+                </p>
+
+
+                <div class="calculator-box">
+
+                    <label for="amount">
+                        Amount
+                    </label>
+
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="Enter amount"
+                        min="0"
+                    >
+
+
+                    <label for="fromCurrency">
+                        From
+                    </label>
+
+                    <select id="fromCurrency">
+
+                        <option value="NGN">
+                            Nigerian Naira (NGN)
+                        </option>
+
+                        <option value="USD">
+                            US Dollar (USD)
+                        </option>
+
+                        <option value="EUR">
+                            Euro (EUR)
+                        </option>
+
+                        <option value="GBP">
+                            British Pound (GBP)
+                        </option>
+
+                        <option value="CAD">
+                            Canadian Dollar (CAD)
+                        </option>
+
+                        <option value="AUD">
+                            Australian Dollar (AUD)
+                        </option>
+
+                        <option value="GHS">
+                            Ghanaian Cedi (GHS)
+                        </option>
+
+                        <option value="ZAR">
+                            South African Rand (ZAR)
+                        </option>
+
+                        <option value="JPY">
+                            Japanese Yen (JPY)
+                        </option>
+
+                    </select>
+
+
+                    <label for="toCurrency">
+                        To
+                    </label>
+
+                    <select id="toCurrency">
+
+                        <option value="USD">
+                            US Dollar (USD)
+                        </option>
+
+                        <option value="NGN">
+                            Nigerian Naira (NGN)
+                        </option>
+
+                        <option value="EUR">
+                            Euro (EUR)
+                        </option>
+
+                        <option value="GBP">
+                            British Pound (GBP)
+                        </option>
+
+                        <option value="CAD">
+                            Canadian Dollar (CAD)
+                        </option>
+
+                        <option value="AUD">
+                            Australian Dollar (AUD)
+                        </option>
+
+                        <option value="GHS">
+                            Ghanaian Cedi (GHS)
+                        </option>
+
+                        <option value="ZAR">
+                            South African Rand (ZAR)
+                        </option>
+
+                        <option value="JPY">
+                            Japanese Yen (JPY)
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        id="convertButton"
+                        class="calculate-button"
+                    >
+                        Convert
+                    </button>
+
+      <button type="button" class="clear-button">
+    Clear
+</button>
+
+
+                    <div
+                        id="currencyResult"
+                        class="calculator-result"
+                    >
+                        Enter an amount and choose your currencies.
+                    </div>
+
+
+                    <p
+                        id="rateDate"
+                        style="
+                            margin-top: 12px;
+                            text-align: center;
+                            color: #667085;
+                            font-size: 13px;
+                        "
+                    ></p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="tool-footer">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <p>
+        Simple tools for everyday life.
+    </p>
+
+    <p>
+        © 2026 ToolNest. All rights reserved.
+    </p>
+
+</footer>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="logo">
+            <span>Tool</span>Nest
+        </div>
+
+        <p>
+            © 2026 ToolNest. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        const amount =
+            document.getElementById("amount");
+
+        const fromCurrency =
+            document.getElementById("fromCurrency");
+
+        const toCurrency =
+            document.getElementById("toCurrency");
+
+        const convertButton =
+            document.getElementById("convertButton");
+
+        const currencyResult =
+            document.getElementById("currencyResult");
+
+        const rateDate =
+            document.getElementById("rateDate");
+
+
+        // ==========================================
+        // CURRENCY CONVERSION
+        // ==========================================
+
+        convertButton.addEventListener(
+            "click",
+            async function() {
+
+                const value =
+                    Number(amount.value);
+
+                const from =
+                    fromCurrency.value;
+
+                const to =
+                    toCurrency.value;
+
+
+                if (
+                    amount.value === "" ||
+                    value < 0
+                ) {
+
+                    currencyResult.textContent =
+                        "Please enter a valid amount.";
+
+                    return;
+                }
+
+
+                if (from === to) {
+
+                    currencyResult.textContent =
+                        `${value} ${from} = ${value} ${to}`;
+
+                    rateDate.textContent =
+                        "";
+
+                    return;
+                }
+
+
+                currencyResult.textContent =
+                    "Getting current exchange rate...";
+
+                rateDate.textContent =
+                    "";
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            `https://api.frankfurter.dev/v2/rate/${from}/${to}`
+                        );
+
+
+                    if (!response.ok) {
+                        throw new Error(
+                            "Unable to get exchange rate."
+                        );
+                    }
+
+
+                    const data =
+                        await response.json();
+
+
+                    const converted =
+                        value * data.rate;
+
+
+                    currencyResult.textContent =
+                        `${value} ${from} = ${converted.toFixed(2)} ${to}`;
+
+
+                    rateDate.textContent =
+                        `Exchange rate: 1 ${from} = ${data.rate} ${to} | Rate date: ${data.date}`;
+
+                }
+
+                catch (error) {
+
+                    currencyResult.textContent =
+                        "Sorry, we couldn't get the exchange rate. Please try again.";
+
+                    rateDate.textContent =
+                        "";
+
+                    console.error(error);
+
+                }
+
+            }
+        );
+
+    </script>
+
+    <script>
+
+    const clearButton =
+        document.querySelector(".clear-button");
+
+    clearButton.addEventListener("click", function () {
+
+        amount.value = "";
+
+        fromCurrency.selectedIndex = 0;
+
+        toCurrency.selectedIndex = 0;
+
+        currencyResult.textContent =
+            "Enter an amount and choose your currencies.";
+
+        rateDate.textContent = "";
+
+    });
+
+</script>
+
+
+<script>
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuButton && navLinks) {
+
+    menuButton.addEventListener("click", function () {
+
+        navLinks.classList.toggle("menu-open");
+
+    });
+
+    const menuItems = navLinks.querySelectorAll("a");
+
+    menuItems.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("menu-open");
+
+        });
+
+    });
+
+}
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>

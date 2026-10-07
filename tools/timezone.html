@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Time Zone Converter - ToolNest</title>
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="../index.html">Home</a>
+
+        <a href="../index.html#tools">Tools</a>
+
+        <a href="../index.html#categories">Categories</a>
+
+        <a href="../index.html#about">About</a>
+
+    </nav>
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
+
+</header>
+
+    <!-- TIME ZONE CONVERTER -->
+
+    <main class="calculator-page">
+
+        <div class="calculator-container">
+
+            <a href="../index.html" class="back-home">
+    ← Back to ToolNest
+</a>
+
+            <h1>
+                Time Zone Converter
+            </h1>
+
+            <p class="calculator-description">
+                Convert a date and time between different time zones.
+            </p>
+
+
+            <div class="calculator-box">
+
+                <label for="dateTime">
+                    Date and Time
+                </label>
+
+                <input
+                    type="datetime-local"
+                    id="dateTime"
+                >
+
+
+                <label for="fromZone">
+                    From Time Zone
+                </label>
+
+                <select id="fromZone">
+
+                    <option value="Africa/Lagos">
+                        Nigeria — Lagos
+                    </option>
+
+                    <option value="America/New_York">
+                        USA — New York
+                    </option>
+
+                    <option value="America/Los_Angeles">
+                        USA — Los Angeles
+                    </option>
+
+                    <option value="Europe/London">
+                        UK — London
+                    </option>
+
+                    <option value="Europe/Paris">
+                        France — Paris
+                    </option>
+
+                    <option value="Asia/Dubai">
+                        UAE — Dubai
+                    </option>
+
+                    <option value="Asia/Kolkata">
+                        India — Kolkata
+                    </option>
+
+                    <option value="Asia/Tokyo">
+                        Japan — Tokyo
+                    </option>
+
+                    <option value="Australia/Sydney">
+                        Australia — Sydney
+                    </option>
+
+                </select>
+
+
+                <label for="toZone">
+                    To Time Zone
+                </label>
+
+                <select id="toZone">
+
+                    <option value="America/New_York">
+                        USA — New York
+                    </option>
+
+                    <option value="Africa/Lagos">
+                        Nigeria — Lagos
+                    </option>
+
+                    <option value="Europe/London">
+                        UK — London
+                    </option>
+
+                    <option value="Europe/Paris">
+                        France — Paris
+                    </option>
+
+                    <option value="Asia/Dubai">
+                        UAE — Dubai
+                    </option>
+
+                    <option value="Asia/Kolkata">
+                        India — Kolkata
+                    </option>
+
+                    <option value="Asia/Tokyo">
+                        Japan — Tokyo
+                    </option>
+
+                    <option value="Australia/Sydney">
+                        Australia — Sydney
+                    </option>
+
+                </select>
+
+
+                <button
+                    type="button"
+                    class="calculate-button"
+                    id="convertTime"
+                >
+                    Convert Time
+                </button>
+
+                <button type="button" class="clear-button">
+    Clear
+</button>
+
+
+                <div
+                    class="calculator-result"
+                    id="timeResult"
+                >
+                    Your converted time will appear here.
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="tool-footer">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <p>
+        Simple tools for everyday life.
+    </p>
+
+    <p>
+        © 2026 ToolNest. All rights reserved.
+    </p>
+
+</footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const dateTime =
+            document.getElementById("dateTime");
+
+        const fromZone =
+            document.getElementById("fromZone");
+
+        const toZone =
+            document.getElementById("toZone");
+
+        const convertTime =
+            document.getElementById("convertTime");
+
+        const timeResult =
+            document.getElementById("timeResult");
+
+
+        function getTimeZoneOffset(
+            date,
+            timeZone
+        ) {
+
+            const parts =
+                new Intl.DateTimeFormat(
+                    "en-US",
+                    {
+                        timeZone: timeZone,
+                        year: "numeric",
+                        month: "2-digit",
+                        day: "2-digit",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        second: "2-digit",
+                        hourCycle: "h23"
+                    }
+                ).formatToParts(date);
+
+
+            const values = {};
+
+            parts.forEach(function(part) {
+
+                if (part.type !== "literal") {
+
+                    values[part.type] =
+                        Number(part.value);
+
+                }
+
+            });
+
+
+            const asUTC =
+                Date.UTC(
+                    values.year,
+                    values.month - 1,
+                    values.day,
+                    values.hour,
+                    values.minute,
+                    values.second
+                );
+
+
+            return asUTC - date.getTime();
+
+        }
+
+
+        function convertDateTime(
+            localDateTime,
+            sourceZone
+        ) {
+
+            const [
+                datePart,
+                timePart
+            ] = localDateTime.split("T");
+
+
+            const [
+                year,
+                month,
+                day
+            ] = datePart.split("-").map(Number);
+
+
+            const [
+                hour,
+                minute
+            ] = timePart.split(":").map(Number);
+
+
+            const approximateUTC =
+                Date.UTC(
+                    year,
+                    month - 1,
+                    day,
+                    hour,
+                    minute
+                );
+
+
+            let date =
+                new Date(approximateUTC);
+
+
+            const offset =
+                getTimeZoneOffset(
+                    date,
+                    sourceZone
+                );
+
+
+            date =
+                new Date(
+                    approximateUTC - offset
+                );
+
+
+            return date;
+
+        }
+
+
+        convertTime.addEventListener(
+            "click",
+            function() {
+
+                if (dateTime.value === "") {
+
+                    timeResult.textContent =
+                        "Please select a date and time.";
+
+                    return;
+
+                }
+
+
+                const date =
+                    convertDateTime(
+                        dateTime.value,
+                        fromZone.value
+                    );
+
+
+                const formatted =
+                    new Intl.DateTimeFormat(
+                        "en-US",
+                        {
+                            timeZone: toZone.value,
+                            dateStyle: "full",
+                            timeStyle: "short"
+                        }
+                    ).format(date);
+
+
+                timeResult.innerHTML =
+                    `
+                    <strong>Converted Time:</strong>
+                    <br>
+                    ${formatted}
+                    `;
+
+            }
+        );
+
+
+    const clearButton =
+        document.querySelector(".clear-button");
+
+    clearButton.addEventListener("click", function () {
+
+        dateTime.value = "";
+
+        fromZone.selectedIndex = 0;
+
+        toZone.selectedIndex = 0;
+
+        timeResult.textContent =
+            "Your converted time will appear here.";
+
+    });
+
+    </script>
+
+
+<script>
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuButton && navLinks) {
+
+    menuButton.addEventListener("click", function () {
+
+        navLinks.classList.toggle("menu-open");
+
+    });
+
+    const menuItems = navLinks.querySelectorAll("a");
+
+    menuItems.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("menu-open");
+
+        });
+
+    });
+
+}
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>

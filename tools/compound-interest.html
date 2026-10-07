@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Compound Interest Calculator - ToolNest</title>
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="../index.html">Home</a>
+
+        <a href="../index.html#tools">Tools</a>
+
+        <a href="../index.html#categories">Categories</a>
+
+        <a href="../index.html#about">About</a>
+
+    </nav>
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
+
+</header>
+
+
+    <!-- COMPOUND INTEREST CALCULATOR -->
+
+    <main class="calculator-page">
+
+        <div class="calculator-container">
+
+            <a href="../index.html" class="back-home">
+    ← Back to ToolNest
+</a>
+
+            <h1>
+                Compound Interest Calculator
+            </h1>
+
+            <p class="calculator-description">
+                Calculate compound interest and your estimated final amount.
+            </p>
+
+
+            <div class="calculator-box">
+
+                <label for="principal">
+                    Initial Amount
+                </label>
+
+                <input
+                    type="number"
+                    id="principal"
+                    placeholder="Enter initial amount"
+                    step="any"
+                >
+
+
+                <label for="interestRate">
+                    Annual Interest Rate (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="interestRate"
+                    placeholder="Example: 10"
+                    step="any"
+                >
+
+
+                <label for="years">
+                    Time (Years)
+                </label>
+
+                <input
+                    type="number"
+                    id="years"
+                    placeholder="Example: 5"
+                    step="any"
+                >
+
+
+                <label for="compoundFrequency">
+                    Compound Frequency
+                </label>
+
+                <select id="compoundFrequency">
+
+                    <option value="1">
+                        Annually
+                    </option>
+
+                    <option value="2">
+                        Semi-annually
+                    </option>
+
+                    <option value="4">
+                        Quarterly
+                    </option>
+
+                    <option value="12">
+                        Monthly
+                    </option>
+
+                    <option value="365">
+                        Daily
+                    </option>
+
+                </select>
+
+
+                <button
+                    type="button"
+                    class="calculate-button"
+                    id="calculateCompound"
+                >
+                    Calculate
+                </button>
+
+                <button type="button" class="clear-button">
+    Clear
+</button>
+
+
+                <div
+                    class="calculator-result"
+                    id="compoundResult"
+                >
+                    Your result will appear here.
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="tool-footer">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <p>
+        Simple tools for everyday life.
+    </p>
+
+    <p>
+        © 2026 ToolNest. All rights reserved.
+    </p>
+
+</footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const principal =
+            document.getElementById("principal");
+
+        const interestRate =
+            document.getElementById("interestRate");
+
+        const years =
+            document.getElementById("years");
+
+        const compoundFrequency =
+            document.getElementById("compoundFrequency");
+
+        const calculateCompound =
+            document.getElementById("calculateCompound");
+
+        const compoundResult =
+            document.getElementById("compoundResult");
+
+
+        calculateCompound.addEventListener(
+            "click",
+            function () {
+
+                const amount =
+                    Number(principal.value);
+
+                const rate =
+                    Number(interestRate.value);
+
+                const time =
+                    Number(years.value);
+
+                const frequency =
+                    Number(compoundFrequency.value);
+
+
+                if (
+                    principal.value === "" ||
+                    interestRate.value === "" ||
+                    years.value === ""
+                ) {
+
+                    compoundResult.textContent =
+                        "Please enter all required values.";
+
+                    return;
+
+                }
+
+
+                if (
+                    amount < 0 ||
+                    rate < 0 ||
+                    time < 0
+                ) {
+
+                    compoundResult.textContent =
+                        "Please enter valid values.";
+
+                    return;
+
+                }
+
+
+                const finalAmount =
+                    amount *
+                    Math.pow(
+                        1 + (rate / 100) / frequency,
+                        frequency * time
+                    );
+
+
+                const interest =
+                    finalAmount - amount;
+
+
+                compoundResult.innerHTML =
+                    `
+                    Final Amount:
+                    ${finalAmount.toFixed(2)}
+
+                    <br><br>
+
+                    Interest Earned:
+                    ${interest.toFixed(2)}
+                    `;
+
+            }
+        );
+
+
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuButton && navLinks) {
+
+    menuButton.addEventListener("click", function () {
+
+        navLinks.classList.toggle("menu-open");
+
+    });
+
+    const menuItems = navLinks.querySelectorAll("a");
+
+    menuItems.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("menu-open");
+
+        });
+
+    });
+
+}
+
+
+    // ==========================================
+    // COMPOUND INTEREST CLEAR BUTTON
+    // ==========================================
+
+    const clearButton =
+        document.querySelector(".clear-button");
+
+    clearButton.addEventListener("click", function () {
+
+        // Clear initial amount
+        principal.value = "";
+
+        // Clear interest rate
+        interestRate.value = "";
+
+        // Clear years
+        years.value = "";
+
+        // Reset compound frequency
+        compoundFrequency.selectedIndex = 0;
+
+        // Reset result
+        compoundResult.textContent =
+            "Your result will appear here.";
+
+    });
+
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>

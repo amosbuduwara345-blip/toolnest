@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Date Calculator - ToolNest</title>
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="../index.html">Home</a>
+
+        <a href="../index.html#tools">Tools</a>
+
+        <a href="../index.html#categories">Categories</a>
+
+        <a href="../index.html#about">About</a>
+
+    </nav>
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
+
+</header>
+
+    <!-- DATE CALCULATOR -->
+
+    <main class="calculator-page">
+
+        <div class="calculator-container">
+
+            <a href="../index.html" class="back-home">
+    ← Back to ToolNest
+</a>
+
+            <h1>
+                Date Calculator
+            </h1>
+
+            <p class="calculator-description">
+                Calculate the number of days between two dates.
+            </p>
+
+
+            <div class="calculator-box">
+
+                <label for="startDate">
+                    Start Date
+                </label>
+
+                <input
+                    type="date"
+                    id="startDate"
+                >
+
+
+                <label for="endDate">
+                    End Date
+                </label>
+
+                <input
+                    type="date"
+                    id="endDate"
+                >
+
+
+                <button
+                    type="button"
+                    class="calculate-button"
+                    id="calculateDate"
+                >
+                    Calculate Difference
+                </button>
+
+                <button type="button" class="clear-button">
+    Clear
+</button>
+
+
+                <div
+                    class="calculator-result"
+                    id="dateResult"
+                >
+                    Your result will appear here.
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="tool-footer">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <p>
+        Simple tools for everyday life.
+    </p>
+
+    <p>
+        © 2026 ToolNest. All rights reserved.
+    </p>
+
+</footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const startDate =
+            document.getElementById("startDate");
+
+        const endDate =
+            document.getElementById("endDate");
+
+        const calculateDate =
+            document.getElementById("calculateDate");
+
+        const dateResult =
+            document.getElementById("dateResult");
+
+
+        calculateDate.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    startDate.value === "" ||
+                    endDate.value === ""
+                ) {
+
+                    dateResult.textContent =
+                        "Please select both dates.";
+
+                    return;
+
+                }
+
+
+                const start =
+                    new Date(
+                        startDate.value + "T00:00:00"
+                    );
+
+                const end =
+                    new Date(
+                        endDate.value + "T00:00:00"
+                    );
+
+
+                const difference =
+                    Math.abs(
+                        end.getTime() -
+                        start.getTime()
+                    );
+
+
+                const days =
+                    Math.round(
+                        difference /
+                        (1000 * 60 * 60 * 24)
+                    );
+
+
+                dateResult.innerHTML =
+                    `
+                    <strong>
+                        ${days} day${days === 1 ? "" : "s"}
+                    </strong>
+                    between the selected dates.
+                    `;
+
+            }
+        );
+
+    </script>
+
+
+<script>
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuButton && navLinks) {
+
+    menuButton.addEventListener("click", function () {
+
+        navLinks.classList.toggle("menu-open");
+
+    });
+
+    const menuItems = navLinks.querySelectorAll("a");
+
+    menuItems.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("menu-open");
+
+        });
+
+    });
+
+}
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>

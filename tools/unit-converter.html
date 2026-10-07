@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Unit Converter - ToolNest</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+<header class="navbar">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="../index.html">Home</a>
+
+        <a href="../index.html#tools">Tools</a>
+
+        <a href="../index.html#categories">Categories</a>
+
+        <a href="../index.html#about">About</a>
+
+    </nav>
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
+
+</header>
+
+    <!-- UNIT CONVERTER -->
+    <main class="calculator-page">
+
+        <div class="calculator-container">
+
+            <a href="../index.html" class="back-home">
+    ← Back to ToolNest
+</a>
+
+            <h1>Unit Converter</h1>
+
+            <p class="calculator-description">
+                Convert common units quickly and easily.
+            </p>
+
+
+            <div class="calculator-box">
+
+                <label for="conversionType">
+                    Conversion
+                </label>
+
+                <select id="conversionType">
+
+                    <option value="km-miles">
+                        Kilometers → Miles
+                    </option>
+
+                    <option value="miles-km">
+                        Miles → Kilometers
+                    </option>
+
+                    <option value="meters-feet">
+                        Meters → Feet
+                    </option>
+
+                    <option value="feet-meters">
+                        Feet → Meters
+                    </option>
+
+                    <option value="kg-lb">
+                        Kilograms → Pounds
+                    </option>
+
+                    <option value="lb-kg">
+                        Pounds → Kilograms
+                    </option>
+
+                    <option value="c-f">
+                        Celsius → Fahrenheit
+                    </option>
+
+                    <option value="f-c">
+                        Fahrenheit → Celsius
+                    </option>
+
+                </select>
+
+
+                <label for="unitValue">
+                    Enter value
+                </label>
+
+                <input
+                    type="number"
+                    id="unitValue"
+                    placeholder="Enter a number"
+                    step="any"
+                >
+
+
+                <button
+                    type="button"
+                    class="calculate-button"
+                    id="convertButton"
+                >
+                    Convert
+                </button>
+
+                <button type="button" class="clear-button">
+    Clear
+</button>
+
+
+                <div
+                    class="calculator-result"
+                    id="conversionResult"
+                >
+                    Your result will appear here.
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="tool-footer">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <p>
+        Simple tools for everyday life.
+    </p>
+
+    <p>
+        © 2026 ToolNest. All rights reserved.
+    </p>
+
+</footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        const conversionType =
+            document.getElementById("conversionType");
+
+        const unitValue =
+            document.getElementById("unitValue");
+
+        const convertButton =
+            document.getElementById("convertButton");
+
+        const conversionResult =
+            document.getElementById("conversionResult");
+
+
+        convertButton.addEventListener(
+            "click",
+            function () {
+
+                const value =
+                    Number(unitValue.value);
+
+                const type =
+                    conversionType.value;
+
+
+                if (unitValue.value === "") {
+
+                    conversionResult.textContent =
+                        "Please enter a value.";
+
+                    return;
+                }
+
+
+                let result;
+                let unit;
+
+
+                switch (type) {
+
+                    case "km-miles":
+
+                        result = value * 0.621371;
+                        unit = "miles";
+
+                        break;
+
+
+                    case "miles-km":
+
+                        result = value * 1.60934;
+                        unit = "kilometers";
+
+                        break;
+
+
+                    case "meters-feet":
+
+                        result = value * 3.28084;
+                        unit = "feet";
+
+                        break;
+
+
+                    case "feet-meters":
+
+                        result = value * 0.3048;
+                        unit = "meters";
+
+                        break;
+
+
+                    case "kg-lb":
+
+                        result = value * 2.20462;
+                        unit = "pounds";
+
+                        break;
+
+
+                    case "lb-kg":
+
+                        result = value * 0.453592;
+                        unit = "kilograms";
+
+                        break;
+
+
+                    case "c-f":
+
+                        result = (value * 9 / 5) + 32;
+                        unit = "°F";
+
+                        break;
+
+
+                    case "f-c":
+
+                        result = (value - 32) * 5 / 9;
+                        unit = "°C";
+
+                        break;
+
+                }
+
+
+                conversionResult.textContent =
+                    `${value} = ${result.toFixed(2)} ${unit}`;
+
+            }
+        );
+
+    </script>
+
+
+
+<script>
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuButton && navLinks) {
+
+    menuButton.addEventListener("click", function () {
+
+        navLinks.classList.toggle("menu-open");
+
+    });
+
+    const menuItems = navLinks.querySelectorAll("a");
+
+    menuItems.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("menu-open");
+
+        });
+
+    });
+
+}
+
+
+
+    const clearButton =
+        document.querySelector(".clear-button");
+
+    clearButton.addEventListener("click", function () {
+
+        conversionType.selectedIndex = 0;
+
+        unitValue.value = "";
+
+        conversionResult.textContent =
+            "Your result will appear here.";
+
+    });
+
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>

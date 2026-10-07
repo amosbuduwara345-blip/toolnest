@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Age Calculator - ToolNest</title>
+
+    <meta
+        name="description"
+        content="Calculate your exact age in years, months and days with ToolNest's free age calculator."
+    >
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="../index.html">Home</a>
+
+        <a href="../index.html#tools">Tools</a>
+
+        <a href="../index.html#categories">Categories</a>
+
+        <a href="../index.html#about">About</a>
+
+    </nav>
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open menu"
+    >
+        ☰
+    </button>
+
+</header>
+
+    <!-- AGE CALCULATOR -->
+
+    <main>
+
+        <section class="calculator-page">
+
+            <div class="calculator-container">
+
+                <a href="../index.html" class="back-home">
+    ← Back to ToolNest
+</a>
+
+                <span class="hero-badge">
+                    EVERYDAY TOOL
+                </span>
+
+                <h1>
+                    Age Calculator
+                </h1>
+
+                <p class="calculator-description">
+                    Enter your date of birth to calculate your
+                    exact age.
+                </p>
+
+
+                <div class="calculator-box">
+
+                    <label for="birthDate">
+                        Date of Birth
+                    </label>
+
+                    <input
+                        type="date"
+                        id="birthDate"
+                    >
+
+
+                    <button
+                        id="calculateAge"
+                        class="calculate-button"
+                    >
+                        Calculate Age
+                    </button>
+
+                    <button type="button" class="clear-button">
+    Clear
+</button>
+
+
+                    <div
+                        id="ageResult"
+                        class="calculator-result"
+                    >
+                        Enter your date of birth above.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="tool-footer">
+
+    <div class="logo">
+        <span>Tool</span>Nest
+    </div>
+
+    <p>
+        Simple tools for everyday life.
+    </p>
+
+    <p>
+        © 2026 ToolNest. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+
+    <script>
+
+        const birthDate =
+            document.getElementById("birthDate");
+
+        const calculateAge =
+            document.getElementById("calculateAge");
+
+        const ageResult =
+            document.getElementById("ageResult");
+
+
+        calculateAge.addEventListener(
+            "click",
+            function() {
+
+                if (!birthDate.value) {
+
+                    ageResult.textContent =
+                        "Please enter your date of birth.";
+
+                    return;
+                }
+
+
+                const birth =
+                    new Date(birthDate.value + "T00:00:00");
+
+                const today =
+                    new Date();
+
+
+                if (birth > today) {
+
+                    ageResult.textContent =
+                        "Date of birth cannot be in the future.";
+
+                    return;
+                }
+
+
+                let years =
+                    today.getFullYear() -
+                    birth.getFullYear();
+
+                let months =
+                    today.getMonth() -
+                    birth.getMonth();
+
+                let days =
+                    today.getDate() -
+                    birth.getDate();
+
+
+                if (days < 0) {
+
+                    months--;
+
+                    const previousMonth =
+                        new Date(
+                            today.getFullYear(),
+                            today.getMonth(),
+                            0
+                        );
+
+                    days +=
+                        previousMonth.getDate();
+                }
+
+
+                if (months < 0) {
+
+                    years--;
+                    months += 12;
+
+                }
+
+
+                ageResult.textContent =
+                    `You are ${years} years, ${months} months and ${days} days old.`;
+
+            }
+        );
+
+        
+
+    // ==========================================
+    // AGE CALCULATOR CLEAR BUTTON
+    // ==========================================
+
+    const clearButton =
+        document.querySelector(".clear-button");
+
+    clearButton.addEventListener("click", function () {
+
+        // Clear date input
+        birthDate.value = "";
+
+        // Reset result
+        ageResult.textContent =
+            "Enter your date of birth above.";
+
+    });
+
+    </script>
+
+    <script>
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuButton && navLinks) {
+
+    menuButton.addEventListener("click", function () {
+
+        navLinks.classList.toggle("menu-open");
+
+    });
+
+    const menuItems = navLinks.querySelectorAll("a");
+
+    menuItems.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("menu-open");
+
+        });
+
+    });
+
+}
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>
