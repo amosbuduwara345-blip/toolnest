@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amosbuduwara345-blip.github.io/toolnest/sitemap.xml
